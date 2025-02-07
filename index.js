@@ -1,9 +1,9 @@
 import { header } from "./components/header/header.js";
-import { formulario } from "./components/formulario/formulario.js";
-import { tarea } from "./components/tareas/tareas.js";
+import { crearTareas } from "./components/tareas/tareas.js";
+import { crearFormulario } from "./components/formulario/formulario.js";
 
 let DOM = document.querySelector("#root");
 
 DOM.appendChild(header());
-DOM.appendChild(formulario());
-DOM.appendChild(tarea());
+DOM.appendChild(crearFormulario ());
+DOM.appendChild(crearTareas());

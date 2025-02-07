@@ -1,0 +1,23 @@
+.contenedorT{
+    width: 52.5rem;
+    height: 27rem;
+    background-color: rgb(255, 255, 255);
+
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(10,1fr);
+
+}
+
+.div-tarea {
+    background-color: rgb(255, 255, 255);
+    grid-column: 2/9;
+    border: 1px solid black;
+
+   padding: 15px;
+}
+
+.cuadrito {
+    height: 20px;
+    grid-column: 1/2;
+}
