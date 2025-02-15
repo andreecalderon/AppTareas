@@ -1,29 +1,26 @@
+import { checkbox } from "./checkbox.js";
 import { tareas } from "./data.js";
 
 function crearTareas() {
-    let contenedor = document.createElement('div');
+    let contenedor = document.createElement("div");
     contenedor.className = "contenedorT";
 
-    
-    tareas.forEach((tarea, i) => {
-        let divTarea = document.createElement('div'); 
+    tareas.forEach((tarea) => {
+        let divTarea = document.createElement("div"); 
         divTarea.className = "div-tarea";
 
-        
-        let checkbox = document.createElement('input');
-        checkbox.type = "checkbox";
-        checkbox.className = "cuadrito";
+        let tareaCheckbox = document.createElement("input");
+        tareaCheckbox.type = "checkbox";
+        tareaCheckbox.className = "cuadrito";
 
-    
-        let textoTarea = document.createElement('span');
-        textoTarea.textContent = tarea; 
+        let textoTarea = document.createElement("span");
+        textoTarea.textContent = tarea;
 
-        
-        contenedor.appendChild(checkbox);
+        divTarea.appendChild(tareaCheckbox);
         divTarea.appendChild(textoTarea);
-
-        
         contenedor.appendChild(divTarea);
+
+        checkbox(tareaCheckbox, textoTarea, divTarea);
     });
 
     return contenedor;

@@ -1,3 +1,5 @@
+import { checkbox } from "../tareas/checkbox.js";
+
 function crearFormulario() {
     let form = document.createElement("form");
     form.className = "formulario";
@@ -15,15 +17,37 @@ function crearFormulario() {
     form.appendChild(input);
     form.appendChild(button);
 
-    form.addEventListener("submit", function(event) {
+    let listaTareas = document.createElement("ul");
+    listaTareas.className = "lista-tareas";
+
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
         if (input.value.trim() !== "") {
-            console.log("Nueva tarea:", input.value.trim());
+            let tareaDiv = document.createElement("div");
+            tareaDiv.className = "tarea";
+
+            let tareaCheckbox = document.createElement("input");
+            tareaCheckbox.type = "checkbox";
+
+            let tareaLabel = document.createElement("label");
+            tareaLabel.textContent = input.value.trim();
+
+            tareaDiv.appendChild(tareaCheckbox);
+            tareaDiv.appendChild(tareaLabel);
+            listaTareas.appendChild(tareaDiv);
+
+            // Conectar con checkbox.js
+            checkbox(tareaCheckbox, tareaLabel);
+
             input.value = "";
         }
     });
 
-    return form;
+    let contenedor = document.createElement("div");
+    contenedor.appendChild(form);
+    contenedor.appendChild(listaTareas);
+
+    return contenedor;
 }
 
 export { crearFormulario };
